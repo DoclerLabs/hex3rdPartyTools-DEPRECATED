@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- ORDER -->
+	<order id="bootstrapOrder" type="hex.event.EventProxy">
+		<argument type="null"/>
+		<argument type="null"/>
+		<argument type="Bool" value = "false"/>
+		<listen ref="contextMockModule">
+			<event static-ref="com.testContextReadyEvent.READY" strategy="com.adapter.bootstrap.BootstrapMacro"/>
+		</listen>
+	</order>
+</root>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- MODULES -->
+			
+	<module id="module2" type="com.test.Module1">
+	
+	<module id="module2" type="com.test.Module2" map-type="com.test.IModule2">
+	</module>
+</root>
