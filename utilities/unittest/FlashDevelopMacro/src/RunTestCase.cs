@@ -102,7 +102,7 @@ class TestMainTmp
 								? "addTestMethod(" + ASContext.Context.CurrentClass.QualifiedName + ", \"" + ASContext.Context.CurrentMember.Name + "\")"
 								: "addTest(" + ASContext.Context.CurrentClass.QualifiedName + ")";*/
 			
-			string testToRun = "addTest(" + this.getTestToRun() + ")";
+			string testToRun = this.getTestToRun();
 			
 			if ( !testToRun.EndsWith("Test") && PREVIOUS_TEST_CLASS != null )
 			{
@@ -114,7 +114,7 @@ class TestMainTmp
 			}
 			
 			string text = this.testDocumentTemplate;
-			text = text.Replace("$(testToRun)", testToRun);
+			text = text.Replace("$(testToRun)", "addTest(" + testToRun + ")");
 			File.WriteAllText(this.tempDocumentClass, text);
 		}
 		
