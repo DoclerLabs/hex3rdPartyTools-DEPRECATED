@@ -20,7 +20,7 @@ class Main
 	var packagename:String = "";
 	var outputFile:FileOutput;
 	
-	var typeMatcher:EReg = ~/(?:type|strategy)\s*?=\s*('|")([a-zA-Z0-9_.]+\.[a-zA-Z0-9_.]+)\1/gm;
+	var typeMatcher:EReg = ~/(?:type|strategy|value)\s*?=\s*('|")([a-zA-Z0-9_.]+\.[a-zA-Z0-9_.]+)\1/gm;
 	
 	static function main() 
 	{
