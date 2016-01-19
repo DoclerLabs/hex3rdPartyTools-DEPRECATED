@@ -35,7 +35,7 @@ class TestMainTmp
 		
 		#if js
 			js.Browser.document.getElementById('console').style.display = 'block';
-			//emu.addListener( new hex.unittest.notifier.BrowserUnitTestNotifier('console') );
+			emu.addListener( new hex.unittest.notifier.BrowserUnitTestNotifier('console') );
 			emu.addListener( new hex.unittest.notifier.WebSocketNotifier('ws://localhost:6660') );
 		#elseif flash
 			emu.addListener( new hex.unittest.notifier.FlashUnitTestNotifier(flash.Lib.current) );
@@ -93,25 +93,16 @@ class TestMainTmp
 		
 		private void notifyTestStart( )
 		{
-			TraceManager.Add("Running unit test for " + ASContext.Context.CurrentClass.QualifiedName );
+			TraceManager.Add("Running unit test for " + this.getTestToRun() );
 		}
 		
-		private void generateDocumentClassFromTemplate()
+		private void generateDocumentClassFromTemplate( )
 		{
 			/*string testToRun = ASContext.Context.CurrentMember != null 
 								? "addTestMethod(" + ASContext.Context.CurrentClass.QualifiedName + ", \"" + ASContext.Context.CurrentMember.Name + "\")"
 								: "addTest(" + ASContext.Context.CurrentClass.QualifiedName + ")";*/
 			
 			string testToRun = this.getTestToRun();
-			
-			if ( !testToRun.EndsWith("Test") && PREVIOUS_TEST_CLASS != null )
-			{
-				testToRun = PREVIOUS_TEST_CLASS;
-			}
-			else
-			{
-				PREVIOUS_TEST_CLASS = testToRun;
-			}
 			
 			string text = this.testDocumentTemplate;
 			text = text.Replace("$(testToRun)", "addTest(" + testToRun + ")");
@@ -128,18 +119,20 @@ class TestMainTmp
 			
 			if ( !testToRun.EndsWith("Test") && PREVIOUS_TEST_CLASS != null )
 			{
-				return PREVIOUS_TEST_CLASS;
+				testToRun = PREVIOUS_TEST_CLASS;
 			}
 			else
 			{
-				return testToRun;
+				PREVIOUS_TEST_CLASS = testToRun;
 			}
+			
+			return testToRun;
 		}
 		
 		
 		private void storeOrigDocumentClass(HaxeProject project)
 		{
-			string origMain = project.CompilerOptions.MainClass;
+			string origMain = project.CompilerOptions.MainClass.Replace(".", "\\");
 			string projectPath = Path.GetDirectoryName(project.ProjectPath);
 			
 			foreach (string cp in project.AbsoluteClasspaths)
