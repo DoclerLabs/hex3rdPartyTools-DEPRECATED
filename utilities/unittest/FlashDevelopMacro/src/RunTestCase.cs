@@ -117,7 +117,7 @@ class TestMainTmp
 			
 			string testToRun = ASContext.Context.CurrentClass.QualifiedName;
 			
-			if ( !testToRun.EndsWith("Test") && PREVIOUS_TEST_CLASS != null )
+			if ( !testToRun.EndsWith("Test") && !testToRun.EndsWith("Suite") && PREVIOUS_TEST_CLASS != null )
 			{
 				testToRun = PREVIOUS_TEST_CLASS;
 			}
