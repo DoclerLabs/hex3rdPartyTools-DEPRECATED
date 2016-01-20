@@ -14,6 +14,7 @@ class Main
 	public static var keys = ["-dir", "-output", "-packagename"];
 	
 	var items:Array<String>;
+	var addedClasses:Array<String>;
 	
 	var dir:String;
 	var output:String;
@@ -36,6 +37,7 @@ class Main
 			//if (!FileSystem.exists(dir)) FileSystem.createDirectory(dir);
 			
 			items = [];
+			addedClasses = [];
 			recurse(dir);
 			
 			this.outputFile = File.write( this.output, false );
@@ -45,7 +47,7 @@ class Main
 			
 			for (item in items)
 			{
-				doConversion(item);
+				doParsing(item);
 			}
 			
 			var classMatcher = ~/(\w+(?:\.\w+)*)\.\w+$/i;
@@ -58,7 +60,7 @@ class Main
 		}
 	}
 	
-	private function doConversion(file:String):Void
+	private function doParsing(file:String):Void
 	{		
 		var fromFile = file;
 		
@@ -75,8 +77,12 @@ class Main
 		
 		for ( result in results )
 		{
-			trace( result );
-			this.outputFile.writeString( "import " + result + ";\n" );
+			if ( this.addedClasses.indexOf( result ) == -1 )
+			{
+				this.addedClasses.push( result );
+				trace( result );
+				this.outputFile.writeString( "import " + result + ";\n" );
+			}
 		}
 	}
 	
