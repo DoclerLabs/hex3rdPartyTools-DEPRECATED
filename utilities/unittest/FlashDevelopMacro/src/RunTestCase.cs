@@ -72,7 +72,7 @@ class TestMainTmp
 				this.build();
 				
 				//TODO: figure out the build finished event
-				Thread.Sleep(1000);
+				Thread.Sleep(1500);
 				
 				this.setDocumentClass( project, this.origDocumentPath );
 				
