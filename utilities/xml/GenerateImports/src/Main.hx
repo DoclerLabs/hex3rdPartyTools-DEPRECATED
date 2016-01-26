@@ -60,7 +60,7 @@ class Main
 		}
 	}
 	
-	private function doParsing(file:String):Void
+	function doParsing(file:String):Void
 	{		
 		var fromFile = file;
 		
@@ -86,7 +86,7 @@ class Main
 		}
 	}
 	
-	private function recurse(path:String)
+	function recurse(path:String)
 	{
 		var dir = FileSystem.readDirectory(path);
 		
@@ -111,7 +111,7 @@ class Main
 		return s.substr(s.lastIndexOf(".") + 1).toLowerCase();
 	}
 	
-	private function parseArgs():Bool
+	function parseArgs():Bool
 	{
 		// Parse args
 		#if debug
