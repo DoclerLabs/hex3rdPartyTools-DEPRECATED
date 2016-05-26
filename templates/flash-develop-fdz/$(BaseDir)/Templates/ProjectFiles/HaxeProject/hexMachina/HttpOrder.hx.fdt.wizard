@@ -1,0 +1,19 @@
+package $(Package);
+
+import hex.order.HttpOrder;
+import hex.control.controller.ICompletable;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) extends HttpOrder<$(EntryPoint)ResultType$(ExitPoint)>$(Implements) $(CSLB){
+	
+	public function execute() : Void $(CSLB){
+		super("url"); //todo set URL
+	}
+	
+	public function getResult() : ICompletable<ResultType> $(CSLB){
+		return this.execute();
+	}
+}

@@ -1,0 +1,18 @@
+package $(Package);
+
+import hex.control.order.Order;
+import hex.di.IInjectorContainer;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) extends Order<$(EntryPoint)ResultType$(ExitPoint)> implements IInjectorContainer $(CSLB){
+	
+	@Inject
+	public var service : IService; //TODO set service interface
+	
+	public function execute() : Void $(CSLB){
+	}
+	
+}

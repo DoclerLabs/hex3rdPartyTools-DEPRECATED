@@ -1,0 +1,14 @@
+package $(Package);
+
+import hex.data.IParser;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) implements IParser<$(EntryPoint)ResultType$(ExitPoint)> $(CSLB){
+	
+	public function parse( serializedContent : Dynamic, target : Dynamic = null) : ResultType $(CSLB){
+		return null;
+	}
+}

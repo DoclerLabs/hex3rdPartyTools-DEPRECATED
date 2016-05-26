@@ -1,0 +1,13 @@
+package $(Package);
+
+import hex.control.controller.IController;
+import hex.control.controller.ICompletable;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+interface $(FileName) extends IController $(CSLB){
+	$(EntryPoint)
+	// function orderCallMethod() : ICompletable<ReturnType>;
+}

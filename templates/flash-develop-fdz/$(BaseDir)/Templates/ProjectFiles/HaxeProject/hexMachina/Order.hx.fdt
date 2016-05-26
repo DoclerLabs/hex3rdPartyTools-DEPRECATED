@@ -1,0 +1,17 @@
+package $(Package);
+
+import hex.control.order.Order;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) extends Order<$(EntryPoint)ResultType$(ExitPoint)> $(CSLB){
+	
+	public function execute() : Void $(CSLB){
+		#if debug
+		getLogger().debug( "$(FileName) execute" );
+		#end 
+	}
+	
+}

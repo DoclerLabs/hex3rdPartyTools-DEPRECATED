@@ -1,0 +1,31 @@
+package $(PackageName);
+
+import hex.compiler.parser.xml.XmlCompiler;
+import hex.log.layout.LogProxyLayout;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class Main $(CSLB){
+	
+	static function main() $(CSLB){
+		#if debug
+		var proxy : LogProxyLayout = new LogProxyLayout();
+		#if js
+		var controller = new hex.log.layout.LogLayoutHTMLView( proxy );
+		proxy.addListener( new hex.log.layout.SimpleBrowserLayout( controller.consoleWrapperTaget ) );
+		proxy.addListener( new hex.log.layout.JavaScriptConsoleLayout() );
+		#elseif flash
+		proxy.addListener( new hex.log.layout.TraceLayout() );
+		#end
+		#end
+		
+		new Main(); 
+	}
+	
+	public function new()
+	{
+		XmlCompiler.readXmlFile( "$(PackagePathAlt)/configuration/context.xml" );
+	}
+}

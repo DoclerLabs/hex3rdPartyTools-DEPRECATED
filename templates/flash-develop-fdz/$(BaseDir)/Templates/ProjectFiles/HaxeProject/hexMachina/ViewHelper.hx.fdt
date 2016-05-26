@@ -1,0 +1,21 @@
+package $(Package);
+
+import hex.view.viewhelper.ViewHelper;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) extends ViewHelper<$(EntryPoint)ViewInterfaceUseForCasting$(ExitPoint)> $(CSLB){
+	
+	public function new() $(CSLB){
+		super();
+		
+	}
+	
+	override function _initialize() : Void $(CSLB){
+		super._initialize();
+		
+	}
+	
+}

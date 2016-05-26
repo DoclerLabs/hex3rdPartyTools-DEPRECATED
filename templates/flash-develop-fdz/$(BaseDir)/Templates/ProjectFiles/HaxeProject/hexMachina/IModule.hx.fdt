@@ -1,0 +1,11 @@
+package $(Package);
+
+import hex.module.IModule;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+interface $(FileName) extends IModule $(CSLB){
+	$(EntryPoint)
+}

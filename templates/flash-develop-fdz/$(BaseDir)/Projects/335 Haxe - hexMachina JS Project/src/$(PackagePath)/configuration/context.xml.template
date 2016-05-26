@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root name="$(ProjectID)">
+	<include file="$(PackagePathAlt)/configuration/ModuleConfiguration.xml"/>
+	<include file="$(PackagePathAlt)/configuration/ServiceConfiguration.xml"/>
+	<include file="$(PackagePathAlt)/configuration/ViewConfigurationJS.xml"/>
+</root>

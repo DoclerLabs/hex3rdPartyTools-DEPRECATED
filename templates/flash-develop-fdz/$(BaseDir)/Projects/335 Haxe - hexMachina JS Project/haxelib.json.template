@@ -1,0 +1,7 @@
+{
+  "name": "$(ProjectID)",
+  "version": "1.0.0",
+  "dependencies": {
+    "hexmachina": "0.2.6"
+	}
+}

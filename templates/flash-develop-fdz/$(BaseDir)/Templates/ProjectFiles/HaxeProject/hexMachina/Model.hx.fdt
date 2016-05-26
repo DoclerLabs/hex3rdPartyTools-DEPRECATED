@@ -1,0 +1,21 @@
+package $(Package);
+
+import hex.model.Model;
+import hex.model.ModelDispatcher;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+$(EntryPoint)class $(FileName) extends Model<$(FileName)Dispatcher, I$(FileName)Listener> implements I$(FileName) $(CSLB){
+	
+	public function new() $(CSLB){
+		super();
+	}
+}
+
+private class $(FileName)Dispatcher extends ModelDispatcher<I$(FileName)Listener> implements I$(FileName)Listener $(CSLB){
+	public function new() $(CSLB){
+		super();
+	}
+}

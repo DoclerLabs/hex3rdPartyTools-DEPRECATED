@@ -1,0 +1,34 @@
+package $(Package);
+
+import hex.config.stateless.StatelessModuleConfig;
+import hex.module.Module;
+import hex.module.dependency.IRuntimeDependencies;
+import hex.module.dependency.RuntimeDependencies;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+$(EntryPoint)class $(FileName) extends Module implements I$(FileName) $(CSLB){
+	
+	public function new() $(CSLB){
+		super();
+		this.getLogger().info( "$(FileName) initialized" );
+		
+		this._addStatelessConfigClasses( [ $(FileName)Config ] );
+	}
+	
+	override function _getRuntimeDependencies() : IRuntimeDependencies $(CSLB){
+		var rd = new RuntimeDependencies();
+		rd.addMappedDependencies( [ ] ); //todo add your dependencies
+		return rd;
+	}
+}
+
+private class $(FileName)Config extends StatelessModuleConfig $(CSLB){
+	override public function configure() : Void $(CSLB){
+		// todo map your models and controllers
+		// this.mapModel( IExampleModel, ExampleModel );
+		// this.mapController( IExampleController, ExampleController );
+	}
+}

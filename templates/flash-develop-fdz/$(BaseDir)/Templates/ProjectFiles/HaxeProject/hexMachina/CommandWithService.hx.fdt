@@ -1,0 +1,27 @@
+package $(Package);
+
+import hex.control.Request;
+import hex.control.command.BasicCommand;
+import hex.di.IInjectorContainer;
+
+/**
+$(CBI)* ...
+$(CBI)* @author $(DefaultUser)
+$(CBI)*/
+class $(FileName) extends BasicCommand implements IInjectorContainer $(CSLB){
+	
+	@Inject
+	public var service : $(EntryPoint)IService$(ExitPoint); //TODO set service interface
+	
+	function new() $(CSLB){
+		super();
+	}
+	
+	public function execute(?request:Request):Void $(CSLB){
+		#if debug
+		getLogger().debug( "$(FileName) execute" );
+		#end
+
+	}
+
+}
